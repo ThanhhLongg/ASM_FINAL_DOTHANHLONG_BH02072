@@ -1,0 +1,116 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.List;
+import java.awt.desktop.OpenURIEvent;
+
+public class Main {
+    static List<Student> studentList = new ArrayList<>();
+
+    public static void main(String[] args) {
+
+        int n;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number of students: ");
+        n = scanner.nextInt();
+
+        for (int i = 1; i <= n ;i++){
+            input();
+        }
+        System.out.println("Print student list: ");
+        output();
+    }
+
+    public static void input() {
+        System.out.println("Enter student information: ");
+        Scanner scanner = new Scanner(System.in);
+            System.out.println("Student registration:");
+        String code = scanner.nextLine();
+        System.out.println("Enter student name:");
+        String name = scanner.nextLine();
+        System.out.println("Enter point:");
+        float grade = scanner.nextFloat();
+        Student student = new Student(code, name, grade);
+        studentList.add(student);
+
+
+    }
+
+    public static void output() {
+        for (Student student : studentList) {
+            System.out.println(student.toString());
+        }
+    }
+
+    public static void removeByCode(String code)
+    {
+
+
+    }
+
+    public static void sortByGradeDesc() {
+
+
+    }
+
+    public static Student findByCodeOrName(String keyword) {
+
+
+        return null;
+    }
+
+    public static List<Student> filterByGrade(float x) {
+
+        return null;
+    }
+}
+
+
+
+public class Student {
+    private String code;
+
+    private String name;
+
+    private float grade;
+
+
+    public Student(String code, String name, float grade)
+    {
+        this.code = code;
+        this.name = name;
+        this.grade = grade;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public float getGrade() {
+        return grade;
+    }
+
+    public void setGrade(float grade) {
+        this.grade = grade;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", grade=" + grade +
+                '}';
+    }
+}
